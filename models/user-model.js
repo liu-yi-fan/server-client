@@ -38,6 +38,10 @@ userSchema.methods.isIntructor = function () {
     return this.role == "intructor";
 };
 
+userSchema.methods.isAdmin = function () {
+  return this.role == "admin";
+}
+
 // mongoose schemma middleare
 userSchema.pre("save", async function (next) {
     if (this.isModified("password") || this.isNew) {
